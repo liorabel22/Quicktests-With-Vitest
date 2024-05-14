@@ -10,6 +10,14 @@ describe('Notification component', () => {
     })
     expect(wrapper.classes()).toEqual(expect.arrayContaining(['notification--error']))
   })
+  // snapshot
+  test('renders the correct style for error', () => {
+    const status = 'error'
+    const wrapper = mount(NotificationToast, {
+      props: { status }
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+  })
 
   test('renders correct style for success', () => {
     const status = 'success'
